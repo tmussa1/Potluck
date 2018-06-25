@@ -30,4 +30,9 @@ public class PotluckController {
         model.addAttribute("potluck", potluckRepository.findById(id).get());
         return "addchef";
     }
+    @RequestMapping("/delete/{id}")
+    public String deletePotluck(@PathVariable("id") long id){
+        potluckRepository.deleteById(id);
+        return "redirect:/listpotluck";
+    }
 }

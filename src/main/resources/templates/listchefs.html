@@ -17,6 +17,10 @@
     <tr th:each="potluck:${potlucks}">
         <td th:text="${potluck.classmateName}"></td>
         <td th:text="${potluck.foodName}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${potluck.id})}">Update</a>
+            <a th:href="@{/delete/{id}(id=${potluck.id})}">Delete</a>
+        </td>
     </tr>
     </tbody>
 </table>
