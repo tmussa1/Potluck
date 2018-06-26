@@ -16,14 +16,16 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+        <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="/addchef">Add Chef</a>
-            <a class="nav-item nav-link" href="/listpotluck">Chefs</a>
+            <a class="nav-item nav-link active" href="/listpotluck">Chefs</a>
         </div>
+        <form th:action="@{/search}" method="post" class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" name="search" placeholder="Search Food">
+        </form>
     </div>
 </nav>
-
 <div class="container">
     <div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]</div>
     <table class="table">

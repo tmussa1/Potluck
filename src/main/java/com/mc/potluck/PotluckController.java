@@ -49,5 +49,4 @@ public class PotluckController {
         model.addAttribute("potlucks", potluckRepository.findAllByFoodNameContainingIgnoreCase(searchTerm));
         return "listchefs";
     }
-
 }

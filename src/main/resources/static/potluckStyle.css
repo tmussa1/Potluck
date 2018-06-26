@@ -10,7 +10,6 @@ body {
     font-size: large;
 }
 
-.potluckForm{
-    margin-top: 300px;
-    margin-left: 200px;
+.jumbotron{
+    background-color: firebrick;
 }
