@@ -24,6 +24,7 @@
     </div>
 </nav>
 <div class="container">
+    <div th:if="${search}!=null" th:inline="text">You searched for [[${search}]]</div>
     <table class="table">
         <thead>
         <tr class="bg-primary">
@@ -32,7 +33,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="potluck:${potlucks}">
+        <tr th:each="potluck : ${potlucks}">
             <td th:text="${potluck.classmateName}"></td>
             <td th:text="${potluck.foodName}"></td>
             <td>
@@ -54,12 +55,3 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
-
-<!--<body>-->
-<!--<div class="container mt-5">-->
-<!--<div class="card mt-2" th:each="chef : ${chefs}">-->
-<!--<div class="card-header" style="background-color: firebrick" th:inline="text">[[${chef.name}]]</div>-->
-<!--<div class="card-body" th:inline="text">Bringing...<br> [[${chef.food}]]</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</body>-->
