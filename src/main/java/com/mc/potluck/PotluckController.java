@@ -12,7 +12,11 @@ public class PotluckController {
     @Autowired
     PotluckRepository potluckRepository;
 
-    @RequestMapping("/")
+    @RequestMapping ("/") public String homePage(){
+        return "index";
+    }
+
+    @RequestMapping("/addchef")
     public String showHomepage(Model model){
         model.addAttribute("potluck", new Potluck());
         return "addchef";
@@ -39,7 +43,7 @@ public class PotluckController {
     }
 
     @RequestMapping("/search") public String searching(HttpServletRequest request, Model model){
-        String searchTerm = request.getParameter("foodname");
+        String searchTerm = request.getParameter("search");
         model.addAttribute("search", searchTerm);
         model.addAttribute("potluckrepo", potluckRepository.findAllByFoodNameContainingIgnoreCase(searchTerm));
         return "listchefs";

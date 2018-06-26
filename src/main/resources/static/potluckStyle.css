@@ -1,3 +1,15 @@
+body {
+    background: url(https://c1.staticflickr.com/1/151/332994184_b310ee9dc9_b.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.nav-item{
+    font-size: large;
+}
+
 .potluckForm{
     margin-top: 300px;
     margin-left: 200px;
