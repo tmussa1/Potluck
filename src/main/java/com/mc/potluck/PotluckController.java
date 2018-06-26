@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class PotluckController {
     @Autowired
@@ -34,5 +36,12 @@ public class PotluckController {
     public String deletePotluck(@PathVariable("id") long id){
         potluckRepository.deleteById(id);
         return "redirect:/listpotluck";
+    }
+
+    @RequestMapping("/search") public String searching(HttpServletRequest request, Model model){
+        String searchTerm = request.getParameter("foodname");
+        model.addAttribute("search", searchTerm);
+        model.addAttribute("potluckrepo", potluckRepository.findAllByFoodNameContainingIgnoreCase(searchTerm));
+        return "listchefs";
     }
 }
