@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class PotluckController {
+
     @Autowired
     PotluckRepository potluckRepository;
 
@@ -42,10 +43,11 @@ public class PotluckController {
         return "redirect:/listpotluck";
     }
 
-    @RequestMapping("/search") public String searching(HttpServletRequest request, Model model){
+    @PostMapping("/search") public String searching(HttpServletRequest request, Model model){
         String searchTerm = request.getParameter("search");
         model.addAttribute("search", searchTerm);
-        model.addAttribute("potluckrepo", potluckRepository.findAllByFoodNameContainingIgnoreCase(searchTerm));
+        model.addAttribute("potlucks", potluckRepository.findAllByFoodNameContainingIgnoreCase(searchTerm));
         return "listchefs";
     }
+
 }
